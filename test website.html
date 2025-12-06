@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to UCLA</title>
+  <style>
+    /* --- Base styles --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #005587, #FFD100);
+      color: #fff;
+      overflow-x: hidden;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      background: rgba(0, 59, 92, 0.6);
+      color: #FFD100;
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* --- Slideshow --- */
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 20px;
+      margin: 30px 0;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      opacity: 0;
+      animation: slideShow 15s infinite;
+    }
+
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 5s; }
+    .slideshow img:nth-child(3) { animation-delay: 10s; }
+
+    @keyframes slideShow {
+      0%, 33% { opacity: 1; }
+      34%, 100% { opacity: 0; }
+    }
+
+    /* --- Sections --- */
+    section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+      transition: all 0.4s ease;
+    }
+
+    button {
+      background: #FFD100;
+      color: #003B5C;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px;
+    }
+
+    button:hover {
+      background: #003B5C;
+      color: #FFD100;
+      box-shadow: 0 0 15px #FFD100;
+    }
+
+    /* --- Form --- */
+    form {
+      display: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin: 40px auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.3);
+      color: #000;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background: rgba(0, 59, 92, 0.6);
+      color: #FFD100;
+      text-align: center;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* --- Dark Mode --- */
+    body.dark-mode {
+      background: linear-gradient(to bottom right, #0a0a0a, #1b1b1b);
+      color: #F6F7F8;
+    }
+
+    body.dark-mode header {
+      background: rgba(20, 20, 20, 0.8);
+      color: #FFD100;
+    }
+
+    body.dark-mode .glass-box,
+    body.dark-mode form {
+      background: rgba(255, 255, 255, 0.05);
+      color: #f6f7f8;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    body.dark-mode button {
+      background: #FFD100;
+      color: #1b1b1b;
+    }
+
+    body.dark-mode button:hover {
+      background: #1b1b1b;
+      color: #FFD100;
+      box-shadow: 0 0 15px #FFD100;
+    }
+
+    body.dark-mode .footer {
+      background: rgba(20, 20, 20, 0.9);
+    }
+
+    /* --- Mode Button --- */
+    #modeBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      color: #FFD100;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="modeBtn" onclick="toggleMode()">🌙 Dark Mode</button>
+
+  <header>
+    Welcome to UCLA!
+  </header>
+
+  <div class="slideshow">
+    <img src="https://www.ucla.edu/img/home/heroes/hero-01.jpg" alt="UCLA Campus 1">
+    <img src="https://newsroom.ucla.edu/files/image/7a2b4f52-7b68-44a9-a18b-37b5fd091d40-ucla-royce-hall.jpg" alt="UCLA Campus 2">
+    <img src="https://newsroom.ucla.edu/files/image/35a6a2c3-6e7b-4515-810b-0b85d83a6b85-ucla-bruin-bear.jpg" alt="UCLA Campus 3">
+  </div>
+
+  <section>
+    <div class="glass-box">
+      <h2>Discover Your Future at UCLA</h2>
+      <p>Join one of the world’s top universities, where innovation meets inspiration. Explore our programs, campus life, and opportunities to grow beyond the classroom.</p>
+      <button id="infoBtn">Click Me!</button>
+      <p id="demo"></p>
+    </div>
+  </section>
+
+  <form id="contactForm">
+    <h3>Contact Us</h3>
+    <label>Name:</label>
+    <input type="text" placeholder="Enter your name" required>
+    <label>Email:</label>
+    <input type="email" placeholder="Enter your email" required>
+    <label>Phone:</label>
+    <input type="tel" placeholder="Enter your contact number" required>
+    <label>Message:</label>
+    <textarea placeholder="Tell us how we can help"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="footer">
+    <p>© 2025 UCLA Dream College | Contact: info@ucla.edu | (555) 123-4567</p>
+  </div>
+
+  <script>
+    // Show contact form on button click
+    document.getElementById("infoBtn").addEventListener("click", function() {
+      document.getElementById("demo").innerHTML = "Please fill out this form to contact us!";
+      document.getElementById("contactForm").style.display = "block";
+    });
+
+    // Toggle dark/light mode
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+      const btn = document.getElementById("modeBtn");
+      if (document.body.classList.contains('dark-mode')) {
+        btn.innerText = "☀️ Light Mode";
+      } else {
+        btn.innerText = "🌙 Dark Mode";
+      }
+    }
+  </script>
+
+</body>
+</html>
